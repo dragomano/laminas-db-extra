@@ -1,0 +1,10 @@
+.idea/
+.php-cs-fixer.cache
+.phpunit.cache/
+.phpunit.result.cache
+.vscode/
+composer.lock
+coverage.xml
+coverage/
+coverage_report/
+vendor/

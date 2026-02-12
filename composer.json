@@ -1,0 +1,51 @@
+{
+  "name": "bugo/laminas-db-extra",
+  "description": "Extended Laminas DB: cross-platform UPSERT, batch operations, table prefixes",
+  "type": "library",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Bugo",
+      "email": "bugo@dragomano.ru"
+    }
+  ],
+  "require": {
+    "php": "^8.2",
+    "ext-pdo": "*",
+    "laminas/laminas-db": "^2.20"
+  },
+  "require-dev": {
+    "dg/bypass-finals": "^1.9",
+    "friendsofphp/php-cs-fixer": "^3.94",
+    "mockery/mockery": "dev-bugfix/spy-generics",
+    "pestphp/pest": "^3.8|^4.3",
+    "rector/rector": "^2.3"
+  },
+  "scripts": {
+    "fix": "vendor/bin/php-cs-fixer fix",
+    "check": "vendor/bin/rector process --dry-run --clear-cache",
+    "tests": "vendor/bin/pest --colors=always --display-warnings",
+    "tests-coverage": "vendor/bin/pest --colors=always --coverage --min=100",
+    "tests-coverage-clover": "vendor/bin/pest --colors=always --min=100 --coverage-clover coverage.xml",
+    "tests-coverage-html": "vendor/bin/pest --colors=always --min=100 --coverage-html coverage"
+  },
+  "autoload": {
+    "psr-4": {
+      "Laminas\\Db\\Extra\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Tests\\": "tests/"
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "preferred-install": "dist",
+    "sort-packages": true,
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "minimum-stability": "stable"
+}
