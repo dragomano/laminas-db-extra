@@ -70,7 +70,7 @@ describe('ExtendedAdapter', function () {
             'driver' => 'Pdo_Mysql',
         ]);
 
-        $platform = Mockery::mock(Mysql::class);
+        $platform = mock(Mysql::class);
         $platform->shouldReceive('getName')->andReturn('MySQL');
 
         $reflection = new ReflectionAccessor($adapter);
@@ -84,7 +84,7 @@ describe('ExtendedAdapter', function () {
             'driver' => 'Pdo_Pgsql',
         ]);
 
-        $platform = Mockery::mock(Postgresql::class);
+        $platform = mock(Postgresql::class);
         $platform->shouldReceive('getName')->andReturn('PostgreSQL');
 
         $reflection = new ReflectionAccessor($adapter);
@@ -98,7 +98,7 @@ describe('ExtendedAdapter', function () {
             'driver' => 'Pdo_Sqlite',
         ]);
 
-        $platform = Mockery::mock(Sqlite::class);
+        $platform = mock(Sqlite::class);
         $platform->shouldReceive('getName')->andReturn('SQLite');
 
         $reflection = new ReflectionAccessor($adapter);

@@ -253,25 +253,9 @@ describe('AbstractTableUpgrader', function () {
             ['name' => 'status', 'type' => 'INTEGER', 'notnull' => 0, 'dflt_value' => null, 'pk' => 0],
         ];
 
-        $resultMock = mock(ResultSetInterface::class);
-        $resultMock->shouldReceive('getIterator')->andReturn(new ArrayIterator($columnsData));
-        $resultMock->shouldReceive('current')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return $columnsData[$index++] ?? null;
-        });
-        $resultMock->shouldReceive('next')->andReturn(null);
-        $resultMock->shouldReceive('valid')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return isset($columnsData[$index++]);
-        });
-        $resultMock->shouldReceive('rewind')->andReturn(null);
-        $resultMock->shouldReceive('key')->andReturn(0);
-
         $this->adapter->shouldReceive('query')
             ->with('PRAGMA table_info(smf_old_table)', Adapter::QUERY_MODE_EXECUTE)
-            ->andReturn($resultMock);
+            ->andReturn(new ArrayIterator($columnsData));
 
         $this->adapter->shouldReceive('query')
             ->with(Mockery::on(function ($sql) {
@@ -519,25 +503,9 @@ describe('AbstractTableUpgrader', function () {
             ['name' => 'test_column', 'type' => 'VARCHAR(255)', 'notnull' => 1, 'dflt_value' => null, 'pk' => 0],
         ];
 
-        $resultMock = mock(ResultSetInterface::class);
-        $resultMock->shouldReceive('getIterator')->andReturn(new ArrayIterator($columnsData));
-        $resultMock->shouldReceive('current')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return $columnsData[$index++] ?? null;
-        });
-        $resultMock->shouldReceive('next')->andReturn(null);
-        $resultMock->shouldReceive('valid')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return isset($columnsData[$index++]);
-        });
-        $resultMock->shouldReceive('rewind')->andReturn(null);
-        $resultMock->shouldReceive('key')->andReturn(0);
-
         $sqliteAdapter->shouldReceive('query')
             ->with('PRAGMA table_info(smf_old_table)', Adapter::QUERY_MODE_EXECUTE)
-            ->andReturn($resultMock);
+            ->andReturn(new ArrayIterator($columnsData));
 
         $sqliteAdapter->shouldReceive('query')
             ->with(Mockery::on(function ($sql) {
@@ -572,25 +540,9 @@ describe('AbstractTableUpgrader', function () {
             ['name' => 'test_column', 'type' => 'VARCHAR(255)', 'notnull' => 1, 'dflt_value' => null, 'pk' => 0],
         ];
 
-        $resultMock = mock(ResultSetInterface::class);
-        $resultMock->shouldReceive('getIterator')->andReturn(new ArrayIterator($columnsData));
-        $resultMock->shouldReceive('current')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return $columnsData[$index++] ?? null;
-        });
-        $resultMock->shouldReceive('next')->andReturn(null);
-        $resultMock->shouldReceive('valid')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return isset($columnsData[$index++]);
-        });
-        $resultMock->shouldReceive('rewind')->andReturn(null);
-        $resultMock->shouldReceive('key')->andReturn(0);
-
         $this->adapter->shouldReceive('query')
             ->with('PRAGMA table_info(smf_old_table)', Adapter::QUERY_MODE_EXECUTE)
-            ->andReturn($resultMock);
+            ->andReturn(new ArrayIterator($columnsData));
 
         $this->adapter->shouldReceive('query')
             ->with(Mockery::on(function ($sql) {
@@ -680,25 +632,9 @@ describe('AbstractTableUpgrader', function () {
             ['name' => 'status', 'type' => 'INTEGER', 'notnull' => 0, 'dflt_value' => null, 'pk' => 0],
         ];
 
-        $resultMock = mock(ResultSetInterface::class);
-        $resultMock->shouldReceive('getIterator')->andReturn(new ArrayIterator($columnsData));
-        $resultMock->shouldReceive('current')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return $columnsData[$index++] ?? null;
-        });
-        $resultMock->shouldReceive('next')->andReturn(null);
-        $resultMock->shouldReceive('valid')->andReturnUsing(function () use ($columnsData) {
-            static $index = 0;
-
-            return isset($columnsData[$index++]);
-        });
-        $resultMock->shouldReceive('rewind')->andReturn(null);
-        $resultMock->shouldReceive('key')->andReturn(0);
-
         $this->adapter->shouldReceive('query')
             ->with('PRAGMA table_info(smf_old_table)', Adapter::QUERY_MODE_EXECUTE)
-            ->andReturn($resultMock);
+            ->andReturn(new ArrayIterator($columnsData));
 
         $this->adapter->shouldReceive('query')
             ->with(Mockery::on(function ($sql) {
