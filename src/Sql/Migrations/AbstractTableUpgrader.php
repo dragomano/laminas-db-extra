@@ -8,7 +8,7 @@ use Laminas\Db\Adapter\Adapter;
 use Laminas\Db\Adapter\Driver\StatementInterface;
 use Laminas\Db\Extra\Sql\Columns\MediumText;
 use Laminas\Db\Extra\Sql\ExtendedSqlInterface;
-use Laminas\Db\ResultSet\ResultSetInterface;
+use Laminas\Db\ResultSet\ResultSet;
 use Laminas\Db\Sql\Ddl\AlterTable;
 use Laminas\Db\Sql\Ddl\Column\Column;
 use Laminas\Db\Sql\Ddl\Column\ColumnInterface;
@@ -215,7 +215,7 @@ abstract class AbstractTableUpgrader implements TableUpgraderInterface
         $this->query(/** @lang text */ "ALTER TABLE $tempTable RENAME TO $this->tableName");
     }
 
-    protected function query(string $sql): ResultSetInterface|StatementInterface|null
+    protected function query(string $sql): ResultSet|StatementInterface|iterable|null
     {
         return $this->sql->getAdapter()->query($sql, Adapter::QUERY_MODE_EXECUTE);
     }
